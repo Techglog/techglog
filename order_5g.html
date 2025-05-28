@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Unlimited Airtel Router - TechGlog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .order-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .order-container h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #ff4b2b;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .price-breakdown {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f7f7f7;
+            border-radius: 5px;
+        }
+        .price-breakdown p {
+            margin: 0.5rem 0;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(to right, #ff7363, #ff617c);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Order Unlimited Airtel Router</h1>
+</header>
+
+<div class="order-container">
+    <h2>Complete Your Order</h2>
+    <form id="paymentForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="price-breakdown">
+            <p>Router Price: <strong>₦78,000</strong></p>
+            <p>Delivery Fee: <strong>₦9,900</strong></p>
+            <p>Total: <strong>₦87,900</strong></p>
+        </div>
+        <div class="form-group">
+            <label for="amount">Total Amount (NGN)</label>
+            <input type="number" id="amount" name="amount" value="87900" readonly>
+        </div>
+        <button type="button" class="submit-btn" onclick="payWithPaystack()">Pay Now</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 TechGlog. All rights reserved.</p>
+</footer>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+    const paystackPublicKey = "pk_live_5b4dd57f2fd5ca4754eb1d40c07404343c439906";
+
+    function payWithPaystack() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const amount = 87900 * 100; // Convert to kobo
+
+        const handler = PaystackPop.setup({
+            key: paystackPublicKey,
+            email: email,
+            amount: amount,
+            currency: 'NGN',
+            ref: 'router-' + Math.floor((Math.random() * 1000000000) + 1),
+            metadata: {
+                custom_fields: [
+                    {
+                        display_name: "Customer Name",
+                        variable_name: "customer_name",
+                        value: name
+                    },
+                    {
+                        display_name: "Phone Number",
+                        variable_name: "phone_number",
+                        value: phone
+                    }
+                ]
+            },
+            callback: function(response) {
+                alert('Payment successful! Transaction ref: ' + response.reference);
+                // Redirect to a success page or perform post-payment actions
+            },
+            onClose: function() {
+                alert('Payment process was closed.');
+            }
+        });
+        handler.openIframe();
+    }
+</script>
+
+</body>
+</html>

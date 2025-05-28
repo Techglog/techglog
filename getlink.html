@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links with Descriptions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #3498db;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 1em;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+
+        .description {
+            color: #777;
+            font-size: 0.9em;
+            margin-top: 5px;
+            text-align: left;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin: 10px 0;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .blink {
+            animation: blinker 1.5s linear infinite;
+            color: red;
+            font-weight: bold;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #fff;
+            background-color: #28a745;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .button {
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            p {
+                font-size: 0.85em;
+            }
+
+            .button {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Useful Links</h1>
+        
+        <p><a href="https://selfservicemodification.nimc.gov.ng/" aria-label="Self Modification NIMC Website">Self Modification</a></p>
+        <p class="description">
+            Documents Required for Date of Birth Modification:
+            <ul>
+                <li>Digitised NPC Attestation Certificate for those born before 1992.</li>
+                <li>Digitised NPC Birth Certificate for those born after 1992.</li>
+            </ul>
+            Documents Required for Change of Name Modification:
+            <ul>
+                <li>Court affidavit.</li>
+                <li>Newspaper extract.</li>
+                <li>Marriage certificate in the case of marital status.</li>
+                <li>Other government ID.</li>
+            </ul>
+            Documents Required for Change of Address Modification:
+            <ul>
+                <li>Utility bill.</li>
+                <li>Tenancy agreement.</li>
+                <li>Community leader’s attestation letter.</li>
+            </ul>
+            Documents Required for Phone Number Modification:
+            <ul>
+                <li>Police report (provide your phone number without “0” after the “+234” country code, for example +234 812345…).</li>
+            </ul>
+            <span class="highlight">If you have these documents above, you can proceed with the process. Note: If you don't have these documents and payment is made, you won't get a refund from the website.</span>
+            <br>
+            <a href="https://selfservicemodification.nimc.gov.ng/" target="_blank" class="button" aria-label="Visit NIN Modification Official Website">Visit NIN Modification Official Website</a>
+        </p>
+
+        <hr>
+        <p><a href="https://wa.link/gq9bth" aria-label="Contact for NIN Modification without Documents">LETS DO IT FOR YOU WITHOUT ANY DOCUMENTS</a></p>
+        <p class="description">
+            We can help you change any NIN details without any of those documents listed above.
+            <br><br>
+            <span class="blink">We can help you change any NIN details without any of those documents listed above.</span>
+            <br>Send me a WhatsApp message for assistance:
+            <br><a href="https://wa.link/gq9bth" target="_blank" class="button" aria-label="Contact on WhatsApp for NIN Modification Assistance">Contact on WhatsApp</a>
+        </p>
+    </div>
+</body>
+</html>
